@@ -1,5 +1,4 @@
 import millerrabin
-
 def Prime(Number):
 	prime=Number-1
 	while True:
