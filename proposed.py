@@ -37,7 +37,7 @@ def finalsignature(s,r,r1,r2,t,u,x,y):
     invTemp=ExtendedEuclidean.ExtendedEuclidean(x,__n__)
     print invTemp
     print "r1="+str(r1)+"r2="+str(r2)
-    l=(invTemp*(r2-u+r1))%__n__
+    l=(r2-u+r1)%__n__
     print "l="+str(l)
     verification(s,y,l,r,t)
 
@@ -54,7 +54,7 @@ def verification(s,y,l,r,t):
     global e,__n__
     y1=FastExponentiation.SquareAndMultiply(s,e,__n__)
     #print y1
-    m=(r*FastExponentiation.SquareAndMultiply(y,l,__n__)*FastExponentiation.SquareAndMultiply(2,t,__n__))%__n__
+    m=(r*ExtendedEuclidean.ExtendedEuclidean(FastExponentiation.SquareAndMultiply(2,__n__,__n__),__n__)*FastExponentiation.SquareAndMultiply(2,l,__n__)*FastExponentiation.SquareAndMultiply(2,t,__n__))%__n__
     print m
 
 signature(Message)
